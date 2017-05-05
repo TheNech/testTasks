@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tripcards</title>
+</head>
+<body>
+	<p>Trip instructions</p>
+	<script type="text/javascript" src="tripCardsSorter.js"></script>
+	<script type="text/javascript">
+	// Формат входных данных:
+	// point - пункт отправления
+	// destination - пункт назначения
+	// transport - транспорт с указанием деталей:
+	// 	type - тип
+	// 	route - рейс
+	// 	gate - выход на посадку
+	// 	seat - место
+	// 	baggageDrop номер багажной карусели
+
+		var cards = [
+			{
+				point: {
+					name: 'Barcelona'
+				},
+				destination: {
+					name: 'Gerona Airport'
+				},
+				transport: {
+					type: 'airportBus',
+					route: '',
+					gate: '',
+					seat: '',
+					baggageDrop: ''
+				}
+			},
+			{
+				point: {
+					name: 'Gerona Airport'
+				},
+				destination: {
+					name: 'Stockholm'
+				},
+				transport: {
+					type: 'plane',
+					route: 'SK455',
+					gate: '45B',
+					seat: '3A',
+					baggageDrop: '344'
+				}
+			},
+			{
+				point: {
+					name: 'Madrid'
+				},
+				destination: {
+					name: 'Barcelona'
+				},
+				transport: {
+					type: 'train',
+					route: '78A',
+					gate: '',
+					seat: '45B',
+					baggageDrop: '344'
+				}
+			},
+			{
+				point: {
+					name: 'Stockholm'
+				},
+				destination: {
+					name: 'New York JFK'
+				},
+				transport: {
+					type: 'plane',
+					route: 'SK22',
+					gate: '22',
+					seat: '7B',
+					baggageDrop: ''
+				}
+			}
+		];
+
+		var main = function () {
+			var sorter = new TripCardsSorter();
+			sorter.importCards(cards);
+			sorter.sortCards();
+			sorter.printItinerary();
+		}
+
+		document.addEventListener("DOMContentLoaded", main);
+	</script>
+</body>
+</html>
